@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package": "cat ./dist/dog-of-the-day/{runtime,polyfills,scripts,main}.js | gzip > elements.js.gz",
+    "build:elements": "ng build --prod --output-hashing none && node build-elements.js"
   },
   "private": true,
   "dependencies": {
@@ -15,10 +17,13 @@
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
     "@angular/core": "~8.0.0",
+    "@angular/elements": "^8.0.3",
     "@angular/forms": "~8.0.0",
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "concat": "^1.0.3",
+    "document-register-element": "^1.7.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
